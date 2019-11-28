@@ -1,0 +1,12 @@
+split -l 1000 ../../ictrp_title.csv
+
+
+---AND THEN---
+
+
+find . -name '*' 
+| awk 'BEGIN{ a=0 }{ printf "mv \"%s\" %04d.csv\n", $0, a++ }' 
+| bash
+
+
+
